@@ -1,19 +1,23 @@
 on:
   workflow_dispatch:
   schedule:
-  - cron: "0 20 * * *"
+    - cron: "0 20 * * *"
 
 jobs:
   build:
     runs-on: ubuntu-latest
     container:
       image: eco4cast/rocker-neon4cast
+
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          
-# Point to the right path, run the right Rscript command
+
+      - name: Install missing R packages
+        run: |
+          Rscript -e 'install.packages(c("rMR"), repos="https://cloud.r-project.org")'
+
       - name: Run automatic prediction file
-        run: Rscript Main.R 
+        run: Rscript Main.R
