@@ -10,11 +10,26 @@ forecast_date <- Sys.Date()
 noaa_date <- Sys.Date() - days(1)  #Need to use yesterday's NOAA forecast because today's is not available yet
 
 #Step 0: Define team name and team members 
-team_info <- list(team_name = "air2waterSat_MCD",
-                  team_list = list(list(individualName = list(givenName = "Mike", 
-                                                              surName = "Dietze"),
-                                        organizationName = "Boston University",
-                                        electronicMailAddress = "dietze@bu.edu"))
+team_info <- list(
+  team_name = "air2waterSat_MCD",
+  team_list = list(
+    list(
+      individualName = list(
+        givenName = "Yang",
+        surName = "Gu"
+      ),
+      organizationName = "Boston University",
+      electronicMailAddress = "yanggu@bu.edu"
+    ),
+    list(
+      individualName = list(
+        givenName = "Sun",
+        surName = "Yinghao"
+      ),
+      organizationName = "Boston University",
+      electronicMailAddress = "sunyh@bu.edu"
+    )
+  )
 )
 
 ## Load required functions
